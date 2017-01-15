@@ -12,7 +12,7 @@ import android.widget.Button;
  */
 
 public class DiaLogThongBao {
-    public void showDiaLogThongBao(Context context,String title,String msg
+    public AlertDialog createDiaLogThongBao(Context context,String title,String msg
             ,String nameBtnYes,String nameBtnNo,int colorBtn,View.OnClickListener yesListener){
         AlertDialog.Builder turnOnLoactionDialog=new AlertDialog.Builder(context);
         turnOnLoactionDialog.setTitle(title);
@@ -22,9 +22,9 @@ public class DiaLogThongBao {
         Button yes=alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         yes.setTextColor(colorBtn);
         yes.setOnClickListener(yesListener);
-        alertDialog.show();
+        return alertDialog;
     }
-    public void showDiaLogLuaChon(Context context,String title,String msg
+    public AlertDialog createDiaLogLuaChon(Context context,String title,String msg
             ,String nameBtnYes,String nameBtnNo,int colorBtn,View.OnClickListener yesListener
             ,View.OnClickListener noListener){
         AlertDialog.Builder turnOnLoactionDialog=new AlertDialog.Builder(context);
@@ -39,9 +39,9 @@ public class DiaLogThongBao {
         no.setTextColor(colorBtn);
         yes.setOnClickListener(yesListener);
         no.setOnClickListener(noListener);
-        alertDialog.show();
+        return alertDialog;
     }
-    public void showDiaLogView(Context context,View view,String title,String msg
+    public AlertDialog createDiaLogView(Context context,View view,String title,String msg
             ,String nameBtnYes,String nameBtnNo,int colorBtn,View.OnClickListener yesListener
             ,View.OnClickListener noListener){
         AlertDialog.Builder turnOnLoactionDialog=new AlertDialog.Builder(context);
@@ -57,9 +57,9 @@ public class DiaLogThongBao {
         no.setTextColor(colorBtn);
         yes.setOnClickListener(yesListener);
         no.setOnClickListener(noListener);
-        alertDialog.show();
+        return alertDialog;
     }
-    public void showDiaLogView(Context context,View view,String title,String msg
+    public AlertDialog createDiaLogView(Context context,View view,String title,String msg
             ,String nameBtnYes,String nameBtnNo,int colorBtn,View.OnClickListener yesListener){
         AlertDialog.Builder turnOnLoactionDialog=new AlertDialog.Builder(context);
         turnOnLoactionDialog.setTitle(title);
@@ -72,9 +72,9 @@ public class DiaLogThongBao {
         yes.setTextColor(colorBtn);
         yes.setOnClickListener(yesListener);
         alertDialog.setView(view);
-        alertDialog.show();
+        return alertDialog;
     }
-    public AlertDialog showDiaLogCustemView(Context context,View view ,
+    public AlertDialog createDiaLogCustemView(Context context,View view ,
                                             String nameBtnYes,String nameBtnNo,
                                             int colorBtn,View.OnClickListener yesListener,
                                             View.OnClickListener noListener){
@@ -96,7 +96,7 @@ public class DiaLogThongBao {
         return alertDialog;
     }
 
-    public AlertDialog showDiaLogCustemView(Context context,
+    public AlertDialog createDiaLogCustemView(Context context,
                                             View view ,
                                             String nameBtnYes,
                                             String nameBtnNo,
@@ -116,7 +116,7 @@ public class DiaLogThongBao {
         return alertDialog;
     }
 
-    public AlertDialog showDiaLogCustemView(Context context,View view){
+    public AlertDialog createDiaLogCustemView(Context context,View view){
         AlertDialog.Builder turnOnLoactionDialog=new AlertDialog.Builder(context);
         AlertDialog alertDialog=turnOnLoactionDialog.create();
         alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
