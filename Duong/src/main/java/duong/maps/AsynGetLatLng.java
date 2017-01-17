@@ -74,7 +74,7 @@ public class AsynGetLatLng extends AsyncTask<Location, Void, String> {
 
                 JSONArray steps = objectLegs.getJSONArray("steps");
 
-                ArrayList<StepsLocation> arrStepsLocations=new ArrayList<>();
+                ArrayList<StepsGoLocation> arrStepses =new ArrayList<>();
                 for (int i = 0; i < steps.length(); i++) {
                     JSONObject StepsLocations=steps.getJSONObject(i);
                     JSONObject distanceSteps = StepsLocations.getJSONObject("distance");
@@ -103,12 +103,12 @@ public class AsynGetLatLng extends AsyncTask<Location, Void, String> {
 
                     String travel_mode=StepsLocations.getString("travel_mode");
 //                    Log.e("faker", travel_mode);
-                    arrStepsLocations.add(new StepsLocation(distanceTextSteps,distanceValueSteps,durationTextSteps,durationValueSteps,
+                    arrStepses.add(new StepsGoLocation(distanceTextSteps,distanceValueSteps,durationTextSteps,durationValueSteps,
                             start_locationLatSteps,start_locationLngSteps,end_locationLatSteps,end_locationLngSteps,html_instructions,travel_mode));
                 }
                 googleMapAPI=new GoogleMapAPI(status,copyrights,
                         summary,distanceText,distanceValue,durationText,durationValue,
-                        end_address,start_address,start_locationLat,start_locationLng,end_locationLat,end_locationLng,arrStepsLocations);
+                        end_address,start_address,start_locationLat,start_locationLng,end_locationLat,end_locationLng, arrStepses);
                 Message message=new Message();
                 message.obj=googleMapAPI;
                 handler.sendMessage(message);

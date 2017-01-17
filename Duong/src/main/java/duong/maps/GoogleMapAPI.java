@@ -31,17 +31,17 @@ public class GoogleMapAPI{
     String start_locationLng;
     String end_locationLat;
     String end_locationLng;
-    ArrayList<StepsLocation> StepsLocations;
+    ArrayList<StepsGoLocation> stepses;
 
-    public void setStepsLocations(ArrayList<StepsLocation> StepsLocations) {
-        this.StepsLocations = StepsLocations;
+    public void setStepses(ArrayList<StepsGoLocation> stepses) {
+        this.stepses = stepses;
     }
 
-    public ArrayList<StepsLocation> getStepsLocations() {
-        return StepsLocations;
+    public ArrayList<StepsGoLocation> getStepses() {
+        return stepses;
     }
 
-    public GoogleMapAPI(String status, String copyrights, String summary, String distanceText, String distanceValue, String durationText, String durationValue, String end_address, String start_address, String start_locationLat, String start_locationLng, String end_locationLat, String end_locationLng, ArrayList<StepsLocation> StepsLocations) {
+    public GoogleMapAPI(String status, String copyrights, String summary, String distanceText, String distanceValue, String durationText, String durationValue, String end_address, String start_address, String start_locationLat, String start_locationLng, String end_locationLat, String end_locationLng, ArrayList<StepsGoLocation> stepses) {
 
         this.status = status;
         this.copyrights = copyrights;
@@ -56,7 +56,7 @@ public class GoogleMapAPI{
         this.start_locationLng = start_locationLng;
         this.end_locationLat = end_locationLat;
         this.end_locationLng = end_locationLng;
-        this.StepsLocations = StepsLocations;
+        this.stepses = stepses;
     }
 
     public String getStatus() {

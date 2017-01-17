@@ -101,6 +101,12 @@ public class Maps {
             Toast.makeText(context,"Vị trí  thoả mã",Toast.LENGTH_LONG).show();
         }
     }
+
+    /**
+     * kiem tra xem vi tri da duoc bat hay chua
+     * @param context 1 ngu canh goi
+     * @return
+     */
     public boolean isLocationIsEnable(Context context) {
         LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
         boolean gps_enabled = false;
@@ -139,21 +145,21 @@ public class Maps {
             googleMap.animateCamera(cameraUpdate);
         }
     }
-    public Polyline drawRoad(GoogleMap googleMap, ArrayList<StepsLocation> stepsLocations, ArrayList<Marker> arrMarkerFlags,int color, int width, int icon){
+    public Polyline drawRoad(GoogleMap googleMap, ArrayList<StepsGoLocation> stepses, ArrayList<Marker> arrMarkerFlags, int color, int width, int icon){
         ArrayList<LatLng> latLngs=new ArrayList<>();
         if (arrMarkerFlags!=null)
             for (Marker marker:arrMarkerFlags)
                 marker.remove();
         arrMarkerFlags=new ArrayList<>();
-        for (StepsLocation stepsLocation:stepsLocations) {
-            latLngs.add(new LatLng(Double.parseDouble(stepsLocation.getStart_locationLatSteps()),
-                    Double.parseDouble(stepsLocation.getStart_locationLngSteps())));
-            Marker marker=drawMarker(googleMap,Double.parseDouble(stepsLocation.getStart_locationLatSteps()),
-                    Double.parseDouble(stepsLocation.getStart_locationLngSteps()),
+        for (StepsGoLocation stepsGoLocation : stepses) {
+            latLngs.add(new LatLng(Double.parseDouble(stepsGoLocation.getStart_locationLatSteps()),
+                    Double.parseDouble(stepsGoLocation.getStart_locationLngSteps())));
+            Marker marker=drawMarker(googleMap,Double.parseDouble(stepsGoLocation.getStart_locationLatSteps()),
+                    Double.parseDouble(stepsGoLocation.getStart_locationLngSteps()),
                     BitmapDescriptorFactory.fromResource(icon),
-                    stepsLocation.getHtml_instructions(),
-                    stepsLocation.getTravel_mode());
-            marker.setTag(stepsLocation);
+                    stepsGoLocation.getHtml_instructions(),
+                    stepsGoLocation.getTravel_mode());
+            marker.setTag(stepsGoLocation);
             arrMarkerFlags.add(marker);
         }
         PolylineOptions polylineOptions = new PolylineOptions();
@@ -162,6 +168,14 @@ public class Maps {
         polylineOptions.addAll(latLngs);
         return googleMap.addPolyline(polylineOptions);
     }
+
+    /**
+     * lay du lieu api cua Google maps ve ve duong di cua 2 location
+     * @param locationStart vi tri bat dau
+     * @param locationEnd vi tri ket thuc
+     * @param mode phuong tien di
+     * @param handler 1 doi tuong de nhan ket qua tra ve
+     */
     public void parserGoogleMapAPI(Location locationStart, Location locationEnd, String mode,Handler handler){
         AsynGetLatLng asynGetLatLng=new AsynGetLatLng(handler,mode);
         asynGetLatLng.execute(locationStart,locationEnd);

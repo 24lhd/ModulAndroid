@@ -7,7 +7,7 @@ import android.text.Spanned;
  * Created by D on 15/01/2017.
  */
 
-public class StepsLocation {
+public class StepsGoLocation {
     String distanceTextSteps;
     String distanceValueSteps;
     String durationTextSteps;
@@ -72,16 +72,16 @@ public class StepsLocation {
         return travel_mode;
     }
 
-    public StepsLocation(String distanceTextSteps,
-                         String distanceValueSteps,
-                         String durationTextSteps,
-                         String durationValueSteps,
-                         String start_locationLatSteps,
-                         String start_locationLngSteps,
-                         String end_locationLatSteps,
-                         String end_locationLngSteps,
-                         String html_instructions,
-                         String travel_mode) {
+    public StepsGoLocation(String distanceTextSteps,
+                           String distanceValueSteps,
+                           String durationTextSteps,
+                           String durationValueSteps,
+                           String start_locationLatSteps,
+                           String start_locationLngSteps,
+                           String end_locationLatSteps,
+                           String end_locationLngSteps,
+                           String html_instructions,
+                           String travel_mode) {
         this.distanceTextSteps = distanceTextSteps;
         this.distanceValueSteps = distanceValueSteps;
         this.durationTextSteps = durationTextSteps;
