@@ -15,7 +15,7 @@ import java.io.File;
  * Created by D on 15/01/2017.
  */
 
-public class UpdateApp {
+public class LinhTinh {
     /**
      * Phương thức tải file .apk từ 1 url về máy và cài đặt khi đã tải xong
      * @param activity đối tượng gọi cần 1 Activity
@@ -59,5 +59,4 @@ public class UpdateApp {
         //register receiver for when .apk download is compete
         activity.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
-
 }
