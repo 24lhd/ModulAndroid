@@ -1,8 +1,10 @@
 package me.make;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
+import duong.ChucNangPhu;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,4 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private void showAll(ABC... aBC) {
         Log.e("faker",""+aBC.length);
     }
+
+    @Override
+    public void onBackPressed() {
+        ChucNangPhu.finishDoubleCick(this);
+    }
+
 }
