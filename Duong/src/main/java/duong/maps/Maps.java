@@ -170,7 +170,7 @@ public class Maps {
     }
 
     /**
-     * lay du lieu api cua Google maps ve ve duong di cua 2 location
+     * lay du lieu api cua Google maps ve ve damanhinh di cua 2 location
      * @param locationStart vi tri bat dau
      * @param locationEnd vi tri ket thuc
      * @param mode phuong tien di

@@ -7,7 +7,7 @@ import android.util.Log;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
 
-import duong.ChucNangPhu;
+import damanhinh.ChucNangPhu;
 
 public class MainActivity extends AppCompatActivity {
 

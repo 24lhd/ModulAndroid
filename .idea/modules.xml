@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Duong/Duong.iml" filepath="$PROJECT_DIR$/Duong/Duong.iml" />
       <module fileurl="file://$PROJECT_DIR$/DuongTau.iml" filepath="$PROJECT_DIR$/DuongTau.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lhd-module-android.iml" filepath="$PROJECT_DIR$/lhd-module-android.iml" />
     </modules>
   </component>
 </project>
