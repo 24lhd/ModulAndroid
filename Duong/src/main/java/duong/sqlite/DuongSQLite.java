@@ -2,12 +2,14 @@ package duong.sqlite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import duong.DuongLog;
 
 /**
  * Created by d on 17/01/2017.
@@ -15,16 +17,17 @@ import java.io.OutputStream;
 
 public class DuongSQLite {
     public DuongSQLite() {
+
     }
 
     public void cloneDatabase() {
         database.close();
     }
 
-    public void createTable(String tbname,String clum) {
-        database.execSQL("CREATE TABLE IF NOT EXISTS "+tbname+" (" +
+    public void createTable(String tbname, String clum) {
+        database.execSQL("CREATE TABLE IF NOT EXISTS " + tbname + " (" +
                 "`stt`INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        clum+
+                clum +
                 ");");
     }
 
@@ -37,38 +40,53 @@ public class DuongSQLite {
     public void setDatabase(SQLiteDatabase database) {
         this.database = database;
     }
-    public void createOrOpenDataBases(Context context,String nameDatabases) {
-        database=context.openOrCreateDatabase(nameDatabases+".sqlite",Context.MODE_APPEND,null);
+
+    public void createOrOpenDataBases(Context context, String nameDatabases) {
+        database = context.openOrCreateDatabase(nameDatabases, Context.MODE_APPEND, null);
     }
 
-    public void copyDataBase(Context context,String dataBaseName) throws IOException {
-        String outFileName = "/data/data/"+context.getPackageName()+"/databases/" + dataBaseName;
-        if (checkDataBase(context,outFileName)) return;
-        InputStream myInput = context.getAssets().open(dataBaseName);
-        OutputStream myOutput = new FileOutputStream(outFileName);
+//    public boolean checkDataBase(Context context, String dataBaseName) {
+//        File file = new File(getPathDatabase(context, dataBaseName));
+//        return file.exists();
+//    }
+
+    public void copyDataBase(Context context, String dataBaseName) {
         byte[] buffer = new byte[1024];
+        OutputStream myOutput = null;
         int length;
-        while ((length = myInput.read(buffer))>0){
-            myOutput.write(buffer, 0, length);
+        InputStream myInput = null;
+        try {
+            File file = new File(getPathDatabase(context, dataBaseName));
+            myInput = context.getAssets().open(dataBaseName);
+            // outputfile
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+            myOutput = new FileOutputStream(file);
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
+            }
+            myOutput.close();
+            myOutput.flush();
+            myInput.close();
+        } catch (IOException e) {
+            DuongLog.e(getClass(), e.getMessage());
         }
-        myOutput.flush();
-        myOutput.close();
-        myInput.close();
-
     }
-    private boolean checkDataBase(Context context,String pathDatabase){
 
-        SQLiteDatabase checkDB = null;
-        try{
-            checkDB = SQLiteDatabase.openDatabase(pathDatabase, null, SQLiteDatabase.OPEN_READONLY);
+    public String getPathDatabase(Context context, String dataBaseName) {
+        return "/data/data/" + context.getPackageName() + "/databases/" + dataBaseName;
+    }
 
-        }catch(SQLiteException e){
-
+    public boolean checkDataBase(Context context, String dataBaseName) {
+        try {
+            String myPath = getPathDatabase(context, dataBaseName);
+            File fileDB = new File(myPath);
+            return fileDB.exists();
+        } catch (Exception e) {
+            return false;
         }
-        if(checkDB != null){
-            checkDB.close();
-        }
-        return checkDB != null ? true : false;
     }
 
 }
