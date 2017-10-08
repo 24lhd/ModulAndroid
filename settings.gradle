@@ -1,1 +1,1 @@
-include ':app', ':Duong'
+include ':app', ':module', ':sqlite', ':listview', ':recycleview', ':viewpager', ':listviewholizontal', ':layoutpanel', ':buttompanellayout', ':buttomdialog', ':viewpagerindicatior', ':gridview', ':videoplayer', ':windowmanager'

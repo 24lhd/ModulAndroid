@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Duong/Duong.iml" filepath="$PROJECT_DIR$/Duong/Duong.iml" />
       <module fileurl="file://$PROJECT_DIR$/DuongTau.iml" filepath="$PROJECT_DIR$/DuongTau.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buttomdialog/buttomdialog.iml" filepath="$PROJECT_DIR$/buttomdialog/buttomdialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buttompanellayout/buttompanellayout.iml" filepath="$PROJECT_DIR$/buttompanellayout/buttompanellayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gridview/gridview.iml" filepath="$PROJECT_DIR$/gridview/gridview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layoutpanel/LayoutPanel.iml" filepath="$PROJECT_DIR$/layoutpanel/LayoutPanel.iml" />
       <module fileurl="file://$PROJECT_DIR$/lhd-module-android.iml" filepath="$PROJECT_DIR$/lhd-module-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listview/listview.iml" filepath="$PROJECT_DIR$/listview/listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/listviewholizontal/listviewholizontal.iml" filepath="$PROJECT_DIR$/listviewholizontal/listviewholizontal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module/module.iml" filepath="$PROJECT_DIR$/module/module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycleview/recycleview.iml" filepath="$PROJECT_DIR$/recycleview/recycleview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sqlite/sqlite.iml" filepath="$PROJECT_DIR$/sqlite/sqlite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/videoplayer/videoplayer.iml" filepath="$PROJECT_DIR$/videoplayer/videoplayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpager/viewpager.iml" filepath="$PROJECT_DIR$/viewpager/viewpager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagerindicatior/viewpagerindicatior.iml" filepath="$PROJECT_DIR$/viewpagerindicatior/viewpagerindicatior.iml" />
+      <module fileurl="file://$PROJECT_DIR$/windowmanager/windowmanager.iml" filepath="$PROJECT_DIR$/windowmanager/windowmanager.iml" />
     </modules>
   </component>
 </project>
