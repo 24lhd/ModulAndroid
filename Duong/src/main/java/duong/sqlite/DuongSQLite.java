@@ -1,6 +1,7 @@
 package duong.sqlite;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.io.File;
@@ -18,6 +19,10 @@ import duong.DuongLog;
 public class DuongSQLite {
     public DuongSQLite() {
 
+    }
+
+    public Cursor selectAllFrom(String tableName) {
+        return getDatabase().query(tableName, null, null, null, null, null, null);
     }
 
     public void cloneDatabase() {
